@@ -14,6 +14,7 @@
           header("location:index.php");
         }
       ?>
+      <!-- on récupère un mot dans la base de données -->
       <?php
         $h = 'localhost';
         $db   = 'jeux';
@@ -50,16 +51,24 @@
         window.onload = function() {
           var e=document.getElementById('game');
           if (e!=null){
+            // on cache le lien vers la page 'game.php'
             e.style.display='none';
           }
           var a=document.getElementById('cache');
           if (a!=null){
+            // on récupère le mot qui vient de la base de données
             var mot=a.innerHTML;
+            // ensuite on cache ce mot
             a.style.display = 'none';
+            // on crée une div
             var div=document.createElement('div');
+            // on lui met un id 'alphabet'
             div.setAttribute('id','alphabet');
+            // on met la div qu'on a créé dans le main
             document.getElementsByTagName('main')[0].appendChild(div);
+            // on crée un tableau qui contient les lettres de l'aphabet
             var alphabet=[ 'A' , 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
+            // on crée des input qui ont chacun pour valeur par défaut une lettre de l'aphabet
             var input;
             for (var k=0; k<alphabet.length; k=k+1) {
               var a=alphabet[k];
@@ -70,6 +79,7 @@
               div.appendChild(input);
               input='';
             }
+            // on crée une div pour y mettre autant de tiret qu'il y a de lettre dans le mot à trouver
             var p=document.createElement('div');
             p.setAttribute('id','new');
             var reponse=[];
@@ -77,7 +87,9 @@
               reponse[i]='_';
             }
             p.innerHTML=reponse.join(' ');
+            // on met la div contenant les tirets dans le main
             document.getElementsByTagName('main')[0].appendChild(p);
+            // on récupère les input contenant les lettres de l'aphabet
             var alpha=document.getElementsByClassName('lettre');
             var vie=6;
             var check=mot.length;
@@ -86,10 +98,7 @@
               var long=mot.length;
               if (vie>=0) {
                 if (vie==0) {
-                  alert("Perdu! Rechargez la page pour rejouer!");
-                }
-                if (check==0) {
-                  alert('Bien joué! Rechargez la page pour continuer à jouer');
+                  alert("Perdu! Veuillez recharger la page pour jouer à nouveau!");
                 }
                 for (var n=0; n<mot.length; n++) {
                   if (mot[n]==alpha[0].value) {
@@ -97,6 +106,10 @@
                     p.innerHTML=reponse.join(' ');
                     long--;
                     check--;
+                    if (check==0) {
+                      alert('Bien joué! Veuillez recharger la page pour continuer à jouer');
+                      break;
+                    }
                   }
                 }
                 if (long==mot.length){
@@ -109,10 +122,7 @@
               var long=mot.length;
               if (vie>=0) {
                 if (vie==0) {
-                  alert("Perdu! Rechargez la page pour rejouer!");
-                }
-                if (check==0) {
-                  alert('Bien joué! Rechargez la page pour continuer à jouer');
+                  alert("Perdu! Veuillez recharger la page pour jouer à nouveau!");
                 }
                 for (var n=0; n<mot.length; n++) {
                   if (mot[n]==alpha[1].value) {
@@ -120,6 +130,10 @@
                     p.innerHTML=reponse.join(' ');
                     long--;
                     check--;
+                    if (check==0) {
+                      alert('Bien joué! Veuillez recharger la page pour continuer à jouer');
+                      break;
+                    }
                   }
                 }
                 if (long==mot.length){
@@ -132,10 +146,7 @@
               var long=mot.length;
               if (vie>=0) {
                 if (vie==0) {
-                  alert("Perdu! Rechargez la page pour rejouer!");
-                }
-                if (check==0) {
-                  alert('Bien joué! Rechargez la page pour continuer à jouer');
+                  alert("Perdu! Veuillez recharger la page pour jouer à nouveau!");
                 }
                 for (var n=0; n<mot.length; n++) {
                   if (mot[n]==alpha[2].value) {
@@ -143,6 +154,10 @@
                     p.innerHTML=reponse.join(' ');
                     long--;
                     check--;
+                    if (check==0) {
+                      alert('Bien joué! Veuillez recharger la page pour continuer à jouer');
+                      break;
+                    }
                   }
                 }
                 if (long==mot.length){
@@ -155,10 +170,7 @@
               var long=mot.length;
               if (vie>=0) {
                 if (vie==0) {
-                  alert("Perdu! Rechargez la page pour rejouer!");
-                }
-                if (check==0) {
-                  alert('Bien joué! Rechargez la page pour continuer à jouer');
+                  alert("Perdu! Veuillez recharger la page pour jouer à nouveau!");
                 }
                 for (var n=0; n<mot.length; n++) {
                   if (mot[n]==alpha[3].value) {
@@ -166,6 +178,10 @@
                     p.innerHTML=reponse.join(' ');
                     long--;
                     check--;
+                    if (check==0) {
+                      alert('Bien joué! Veuillez recharger la page pour continuer à jouer');
+                      break;
+                    }
                   }
                 }
                 if (long==mot.length){
@@ -178,10 +194,7 @@
               var long=mot.length;
               if (vie>=0) {
                 if (vie==0) {
-                  alert("Perdu! Rechargez la page pour rejouer!");
-                }
-                if (check==0) {
-                  alert('Bien joué! Rechargez la page pour continuer à jouer');
+                  alert("Perdu! Veuillez recharger la page pour jouer à nouveau!");
                 }
                 for (var n=0; n<mot.length; n++) {
                   if (mot[n]==alpha[4].value) {
@@ -189,6 +202,10 @@
                     p.innerHTML=reponse.join(' ');
                     long--;
                     check--;
+                    if (check==0) {
+                      alert('Bien joué! Veuillez recharger la page pour continuer à jouer');
+                      break;
+                    }
                   }
                 }
                 if (long==mot.length){
@@ -201,10 +218,7 @@
               var long=mot.length;
               if (vie>=0) {
                 if (vie==0) {
-                  alert("Perdu! Rechargez la page pour rejouer!");
-                }
-                if (check==0) {
-                  alert('Bien joué! Rechargez la page pour continuer à jouer');
+                  alert("Perdu! Veuillez recharger la page pour jouer à nouveau!");
                 }
                 for (var n=0; n<mot.length; n++) {
                   if (mot[n]==alpha[5].value) {
@@ -212,6 +226,10 @@
                     p.innerHTML=reponse.join(' ');
                     long--;
                     check--;
+                    if (check==0) {
+                      alert('Bien joué! Veuillez recharger la page pour continuer à jouer');
+                      break;
+                    }
                   }
                 }
                 if (long==mot.length){
@@ -224,10 +242,7 @@
               var long=mot.length;
               if (vie>=0) {
                 if (vie==0) {
-                  alert("Perdu! Rechargez la page pour rejouer!");
-                }
-                if (check==0) {
-                  alert('Bien joué! Rechargez la page pour continuer à jouer');
+                  alert("Perdu! Veuillez recharger la page pour jouer à nouveau!");
                 }
                 for (var n=0; n<mot.length; n++) {
                   if (mot[n]==alpha[6].value) {
@@ -235,6 +250,10 @@
                     p.innerHTML=reponse.join(' ');
                     long--;
                     check--;
+                    if (check==0) {
+                      alert('Bien joué! Veuillez recharger la page pour continuer à jouer');
+                      break;
+                    }
                   }
                 }
                 if (long==mot.length){
@@ -247,10 +266,7 @@
               var long=mot.length;
               if (vie>=0) {
                 if (vie==0) {
-                  alert("Perdu! Rechargez la page pour rejouer!");
-                }
-                if (check==0) {
-                  alert('Bien joué! Rechargez la page pour continuer à jouer');
+                  alert("Perdu! Veuillez recharger la page pour jouer à nouveau!");
                 }
                 for (var n=0; n<mot.length; n++) {
                   if (mot[n]==alpha[7].value) {
@@ -258,6 +274,10 @@
                     p.innerHTML=reponse.join(' ');
                     long--;
                     check--;
+                    if (check==0) {
+                      alert('Bien joué! Veuillez recharger la page pour continuer à jouer');
+                      break;
+                    }
                   }
                 }
                 if (long==mot.length){
@@ -270,10 +290,7 @@
               var long=mot.length;
               if (vie>=0) {
                 if (vie==0) {
-                  alert("Perdu! Rechargez la page pour rejouer!");
-                }
-                if (check==0) {
-                  alert('Bien joué! Rechargez la page pour continuer à jouer');
+                  alert("Perdu! Veuillez recharger la page pour jouer à nouveau!");
                 }
                 for (var n=0; n<mot.length; n++) {
                   if (mot[n]==alpha[8].value) {
@@ -281,6 +298,10 @@
                     p.innerHTML=reponse.join(' ');
                     long--;
                     check--;
+                    if (check==0) {
+                      alert('Bien joué! Veuillez recharger la page pour continuer à jouer');
+                      break;
+                    }
                   }
                 }
                 if (long==mot.length){
@@ -293,10 +314,7 @@
               var long=mot.length;
               if (vie>=0) {
                 if (vie==0) {
-                  alert("Perdu! Rechargez la page pour rejouer!");
-                }
-                if (check==0) {
-                  alert('Bien joué! Rechargez la page pour continuer à jouer');
+                  alert("Perdu! Veuillez recharger la page pour jouer à nouveau!");
                 }
                 for (var n=0; n<mot.length; n++) {
                   if (mot[n]==alpha[9].value) {
@@ -304,6 +322,10 @@
                     p.innerHTML=reponse.join(' ');
                     long--;
                     check--;
+                    if (check==0) {
+                      alert('Bien joué! Veuillez recharger la page pour continuer à jouer');
+                      break;
+                    }
                   }
                 }
                 if (long==mot.length){
@@ -316,10 +338,7 @@
               var long=mot.length;
               if (vie>=0) {
                 if (vie==0) {
-                  alert("Perdu! Rechargez la page pour rejouer!");
-                }
-                if (check==0) {
-                  alert('Bien joué! Rechargez la page pour continuer à jouer');
+                  alert("Perdu! Veuillez recharger la page pour jouer à nouveau!");
                 }
                 for (var n=0; n<mot.length; n++) {
                   if (mot[n]==alpha[10].value) {
@@ -327,6 +346,10 @@
                     p.innerHTML=reponse.join(' ');
                     long--;
                     check--;
+                    if (check==0) {
+                      alert('Bien joué! Veuillez recharger la page pour continuer à jouer');
+                      break;
+                    }
                   }
                 }
                 if (long==mot.length){
@@ -339,10 +362,7 @@
               var long=mot.length;
               if (vie>=0) {
                 if (vie==0) {
-                  alert("Perdu! Rechargez la page pour rejouer!");
-                }
-                if (check==0) {
-                  alert('Bien joué! Rechargez la page pour continuer à jouer');
+                  alert("Perdu! Veuillez recharger la page pour jouer à nouveau!");
                 }
                 for (var n=0; n<mot.length; n++) {
                   if (mot[n]==alpha[11].value) {
@@ -350,6 +370,10 @@
                     p.innerHTML=reponse.join(' ');
                     long--;
                     check--;
+                    if (check==0) {
+                      alert('Bien joué! Veuillez recharger la page pour continuer à jouer');
+                      break;
+                    }
                   }
                 }
                 if (long==mot.length){
@@ -362,10 +386,7 @@
               var long=mot.length;
               if (vie>=0) {
                 if (vie==0) {
-                  alert("Perdu! Rechargez la page pour rejouer!");
-                }
-                if (check==0) {
-                  alert('Bien joué! Rechargez la page pour continuer à jouer');
+                  alert("Perdu! Veuillez recharger la page pour jouer à nouveau!");
                 }
                 for (var n=0; n<mot.length; n++) {
                   if (mot[n]==alpha[12].value) {
@@ -373,6 +394,10 @@
                     p.innerHTML=reponse.join(' ');
                     long--;
                     check--;
+                    if (check==0) {
+                      alert('Bien joué! Veuillez recharger la page pour continuer à jouer');
+                      break;
+                    }
                   }
                 }
                 if (long==mot.length){
@@ -385,10 +410,7 @@
               var long=mot.length;
               if (vie>=0) {
                 if (vie==0) {
-                  alert("Perdu! Rechargez la page pour rejouer!");
-                }
-                if (check==0) {
-                  alert('Bien joué! Rechargez la page pour continuer à jouer');
+                  alert("Perdu! Veuillez recharger la page pour jouer à nouveau!");
                 }
                 for (var n=0; n<mot.length; n++) {
                   if (mot[n]==alpha[13].value) {
@@ -396,6 +418,10 @@
                     p.innerHTML=reponse.join(' ');
                     long--;
                     check--;
+                    if (check==0) {
+                      alert('Bien joué! Veuillez recharger la page pour continuer à jouer');
+                      break;
+                    }
                   }
                 }
                 if (long==mot.length){
@@ -408,10 +434,7 @@
               var long=mot.length;
               if (vie>=0) {
                 if (vie==0) {
-                  alert("Perdu! Rechargez la page pour rejouer!");
-                }
-                if (check==0) {
-                  alert('Bien joué! Rechargez la page pour continuer à jouer');
+                  alert("Perdu! Veuillez recharger la page pour jouer à nouveau!");
                 }
                 for (var n=0; n<mot.length; n++) {
                   if (mot[n]==alpha[14].value) {
@@ -419,6 +442,10 @@
                     p.innerHTML=reponse.join(' ');
                     long--;
                     check--;
+                    if (check==0) {
+                      alert('Bien joué! Veuillez recharger la page pour continuer à jouer');
+                      break;
+                    }
                   }
                 }
                 if (long==mot.length){
@@ -431,10 +458,7 @@
               var long=mot.length;
               if (vie>=0) {
                 if (vie==0) {
-                  alert("Perdu! Rechargez la page pour rejouer!");
-                }
-                if (check==0) {
-                  alert('Bien joué! Rechargez la page pour continuer à jouer');
+                  alert("Perdu! Veuillez recharger la page pour jouer à nouveau!");
                 }
                 for (var n=0; n<mot.length; n++) {
                   if (mot[n]==alpha[15].value) {
@@ -442,6 +466,10 @@
                     p.innerHTML=reponse.join(' ');
                     long--;
                     check--;
+                    if (check==0) {
+                      alert('Bien joué! Veuillez recharger la page pour continuer à jouer');
+                      break;
+                    }
                   }
                 }
                 if (long==mot.length){
@@ -454,10 +482,7 @@
               var long=mot.length;
               if (vie>=0) {
                 if (vie==0) {
-                  alert("Perdu! Rechargez la page pour rejouer!");
-                }
-                if (check==0) {
-                  alert('Bien joué! Rechargez la page pour continuer à jouer');
+                  alert("Perdu! Veuillez recharger la page pour jouer à nouveau!");
                 }
                 for (var n=0; n<mot.length; n++) {
                   if (mot[n]==alpha[16].value) {
@@ -465,6 +490,10 @@
                     p.innerHTML=reponse.join(' ');
                     long--;
                     check--;
+                    if (check==0) {
+                      alert('Bien joué! Veuillez recharger la page pour continuer à jouer');
+                      break;
+                    }
                   }
                 }
                 if (long==mot.length){
@@ -477,10 +506,7 @@
               var long=mot.length;
               if (vie>=0) {
                 if (vie==0) {
-                  alert("Perdu! Rechargez la page pour rejouer!");
-                }
-                if (check==0) {
-                  alert('Bien joué! Rechargez la page pour continuer à jouer');
+                  alert("Perdu! Veuillez recharger la page pour jouer à nouveau!");
                 }
                 for (var n=0; n<mot.length; n++) {
                   if (mot[n]==alpha[17].value) {
@@ -488,6 +514,10 @@
                     p.innerHTML=reponse.join(' ');
                     long--;
                     check--;
+                    if (check==0) {
+                      alert('Bien joué! Veuillez recharger la page pour continuer à jouer');
+                      break;
+                    }
                   }
                 }
                 if (long==mot.length){
@@ -500,10 +530,7 @@
               var long=mot.length;
               if (vie>=0) {
                 if (vie==0) {
-                  alert("Perdu! Rechargez la page pour rejouer!");
-                }
-                if (check==0) {
-                  alert('Bien joué! Rechargez la page pour continuer à jouer');
+                  alert("Perdu! Veuillez recharger la page pour jouer à nouveau!");
                 }
                 for (var n=0; n<mot.length; n++) {
                   if (mot[n]==alpha[18].value) {
@@ -511,6 +538,10 @@
                     p.innerHTML=reponse.join(' ');
                     long--;
                     check--;
+                    if (check==0) {
+                      alert('Bien joué! Veuillez recharger la page pour continuer à jouer');
+                      break;
+                    }
                   }
                 }
                 if (long==mot.length){
@@ -523,10 +554,7 @@
               var long=mot.length;
               if (vie>=0) {
                 if (vie==0) {
-                  alert("Perdu! Rechargez la page pour rejouer!");
-                }
-                if (check==0) {
-                  alert('Bien joué! Rechargez la page pour continuer à jouer');
+                  alert("Perdu! Veuillez recharger la page pour jouer à nouveau!");
                 }
                 for (var n=0; n<mot.length; n++) {
                   if (mot[n]==alpha[19].value) {
@@ -534,6 +562,10 @@
                     p.innerHTML=reponse.join(' ');
                     long--;
                     check--;
+                    if (check==0) {
+                      alert('Bien joué! Veuillez recharger la page pour continuer à jouer');
+                      break;
+                    }
                   }
                 }
                 if (long==mot.length){
@@ -546,10 +578,7 @@
               var long=mot.length;
               if (vie>=0) {
                 if (vie==0) {
-                  alert("Perdu! Rechargez la page pour rejouer!");
-                }
-                if (check==0) {
-                  alert('Bien joué! Rechargez la page pour continuer à jouer');
+                  alert("Perdu! Veuillez recharger la page pour jouer à nouveau!");
                 }
                 for (var n=0; n<mot.length; n++) {
                   if (mot[n]==alpha[20].value) {
@@ -557,6 +586,10 @@
                     p.innerHTML=reponse.join(' ');
                     long--;
                     check--;
+                    if (check==0) {
+                      alert('Bien joué! Veuillez recharger la page pour continuer à jouer');
+                      break;
+                    }
                   }
                 }
                 if (long==mot.length){
@@ -569,10 +602,7 @@
               var long=mot.length;
               if (vie>=0) {
                 if (vie==0) {
-                  alert("Perdu! Rechargez la page pour rejouer!");
-                }
-                if (check==0) {
-                  alert('Bien joué! Rechargez la page pour continuer à jouer');
+                  alert("Perdu! Veuillez recharger la page pour jouer à nouveau!");
                 }
                 for (var n=0; n<mot.length; n++) {
                   if (mot[n]==alpha[21].value) {
@@ -580,6 +610,10 @@
                     p.innerHTML=reponse.join(' ');
                     long--;
                     check--;
+                    if (check==0) {
+                      alert('Bien joué! Veuillez recharger la page pour continuer à jouer');
+                      break;
+                    }
                   }
                 }
                 if (long==mot.length){
@@ -592,10 +626,7 @@
               var long=mot.length;
               if (vie>=0) {
                 if (vie==0) {
-                  alert("Perdu! Rechargez la page pour rejouer!");
-                }
-                if (check==0) {
-                  alert('Bien joué! Rechargez la page pour continuer à jouer');
+                  alert("Perdu! Veuillez recharger la page pour jouer à nouveau!");
                 }
                 for (var n=0; n<mot.length; n++) {
                   if (mot[n]==alpha[22].value) {
@@ -603,6 +634,10 @@
                     p.innerHTML=reponse.join(' ');
                     long--;
                     check--;
+                    if (check==0) {
+                      alert('Bien joué! Veuillez recharger la page pour continuer à jouer');
+                      break;
+                    }
                   }
                 }
                 if (long==mot.length){
@@ -615,10 +650,7 @@
               var long=mot.length;
               if (vie>=0) {
                 if (vie==0) {
-                  alert("Perdu! Rechargez la page pour rejouer!");
-                }
-                if (check==0) {
-                  alert('Bien joué! Rechargez la page pour continuer à jouer');
+                  alert("Perdu! Veuillez recharger la page pour jouer à nouveau!");
                 }
                 for (var n=0; n<mot.length; n++) {
                   if (mot[n]==alpha[23].value) {
@@ -626,6 +658,10 @@
                     p.innerHTML=reponse.join(' ');
                     long--;
                     check--;
+                    if (check==0) {
+                      alert('Bien joué! Veuillez recharger la page pour continuer à jouer');
+                      break;
+                    }
                   }
                 }
                 if (long==mot.length){
@@ -638,10 +674,7 @@
               var long=mot.length;
               if (vie>=0) {
                 if (vie==0) {
-                  alert("Perdu! Rechargez la page pour rejouer!");
-                }
-                if (check==0) {
-                  alert('Bien joué! Rechargez la page pour continuer à jouer');
+                  alert("Perdu! Veuillez recharger la page pour jouer à nouveau!");
                 }
                 for (var n=0; n<mot.length; n++) {
                   if (mot[n]==alpha[24].value) {
@@ -649,6 +682,10 @@
                     p.innerHTML=reponse.join(' ');
                     long--;
                     check--;
+                    if (check==0) {
+                      alert('Bien joué! Veuillez recharger la page pour continuer à jouer');
+                      break;
+                    }
                   }
                 }
                 if (long==mot.length){
@@ -661,10 +698,7 @@
               var long=mot.length;
               if (vie>=0) {
                 if (vie==0) {
-                  alert("Perdu! Rechargez la page pour rejouer!");
-                }
-                if (check==0) {
-                  alert('Bien joué! Rechargez la page pour continuer à jouer');
+                  alert("Perdu! Veuillez recharger la page pour jouer à nouveau!");
                 }
                 for (var n=0; n<mot.length; n++) {
                   if (mot[n]==alpha[25].value) {
@@ -672,6 +706,10 @@
                     p.innerHTML=reponse.join(' ');
                     long--;
                     check--;
+                    if (check==0) {
+                      alert('Bien joué! Veuillez recharger la page pour continuer à jouer');
+                      break;
+                    }
                   }
                 }
                 if (long==mot.length){
@@ -679,15 +717,6 @@
                 }
               }
             };
-
-            // if (vie==6) {
-            //   console.log(vie);
-            //   alert("Bien joué. Rechargez la page pour rejouer!");
-            // }
-            //
-            // if (vie<0 && check>0) {
-            //   alert('Dommage. Rechargez la page pour rejouer!');
-            // }
           }
         };
       </script>
